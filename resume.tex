@@ -1,0 +1,61 @@
+\documentclass[10pt,a4paper,ragged2e]{altacv}
+\geometry{left=1cm,right=9cm,marginparwidth=7.6cm,marginparsep=0.4cm,top=0.75cm,bottom=0.75cm}
+\ifxetexorluatex
+  \setmainfont{Carlito}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[default]{lato}
+\fi
+\definecolor{VividPurple}{HTML}{000000}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{2E2E2E}
+\colorlet{heading}{VividPurple}
+\colorlet{accent}{VividPurple}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+\begin{document}
+\name{Vishal Yadav}
+\personalinfo{%
+  \email{vishalydv23@outlook.com}
+  \location{Edinburgh, United Kingdom}
+  \phone{+44 7342143507}
+  \github{github.com/vishalydv23}
+  \homepage{digisam.org}
+  \linkedin{linkedin.com/in/vishal-yadav-edinburgh/}
+}
+
+\begin{fullwidth}
+\makecvheader
+\end{fullwidth}
+
+\AtBeginEnvironment{itemize}{\small}
+
+\cvsection[page1sidebar]{Introduction}
+AI researcher and founder with eight years at the frontier of applied ML, currently leading AI governance transformation and novel LLM research at BlackRock AI Labs, while co-building DigiSam Foundation to close the AI divide for rural women in India. Building towards the first state-aware design engine for conditional biologics, beginning with target-binding-triggered conformational switches that make precision therapeutics programmable by biological state. With strong wet-lab access through the University of Cambridge's Fruk Lab, whose research on stimulus-responsive nanocarrier delivery systems is directly adjacent to this problem space.
+
+\cvsection{Experience}
+
+\cvevent{Senior Data Scientist}{BlackRock AI Labs}{July 2025 -- Present}{Edinburgh, United Kingdom}
+\begin{itemize}
+\item \textbf{\textit{AI Governance for Vision 2030:}} Leading a high-profile cross-functional data science team to reimagine BlackRock’s enterprise AI governance — redesigning processes and tooling to make governance an innovation enabler rather than a compliance bottleneck, aligned to the firm’s long-term strategic vision.
+\item \textbf{\textit{ASIMOV — AI-powered investment research:}} Leading the agentic data visualisation workstream, delivering text-to-SQL and SQL-to-chart capabilities at scale. Research focus: improving structured data retrieval through pre and post-training of LLMs. \textbf{Python, Azure, OpenAI}. Featured in the \textit{Wall Street Journal}.
+\end{itemize}
+
+\cvevent{Co-Founder \& Director}{DigiSam Foundation}{May 2025 -- Present}{Uttar Pradesh, India}
+\begin{itemize}
+\item Lead organisational strategy, partnerships, and programme design across three workstreams: AI literacy training, last-mile delivery of government services, and building accessible AI tools for communities with low digital infrastructure, currently operational in Uttar Pradesh.
+\item Launched \textbf{Survey Sakhi} in Saidbhar village, UP, where a trained local community researcher surveyed all 250 households. Sharpest finding: 60\% own smartphones yet 87\% have never accessed a government service app; only 1.6\% had heard of AI, yet 31\% said yes to AI training. Result: 167 women (67\%) already signed up for digital literacy programmes.
+\end{itemize}
+
+\cvevent{Senior Consultant — Data Science \& GenAI}{Capgemini Invent}{Dec 2021 -- July 2025}{Glasgow, United Kingdom}
+\begin{itemize}
+\item \textbf{\textit{Project ASCEND (Dubai Dept. of Finance):}} Built a multi-agent system performing gap analysis of new financial processes against existing regulations, generating recommendations and KPIs, reducing report turnaround from weeks to minutes. \textbf{Azure, LlamaIndex, Python, Next.js}. Covered by Gulf News, Finance Middle East and the DOF.
+\item \textbf{\textit{Knowledge graphs from unstructured data (UK Defence):}} Used LLMs to extract structured knowledge graphs from multi-format unstructured data at scale, enabling a digital model of UK defence and cutting modelling time from weeks to minutes. \textbf{Azure, OpenAI, Python}.
+\end{itemize}
+
+\cvevent{Data Scientist}{Barclays PLC}{July 2018 -- Dec 2021}{Glasgow, United Kingdom}
+Equity trade volume forecaster for Barclays Smart Investor, deployed on \textbf{AWS} (EMR, S3, SageMaker) using \textbf{Keras, TensorFlow, Spark}, with a full-stack \textbf{Angular} KPI dashboard.
+
+\end{document}
