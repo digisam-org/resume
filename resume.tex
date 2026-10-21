@@ -1,5 +1,5 @@
 \documentclass[10pt,a4paper,ragged2e]{altacv}
-\geometry{left=1cm,right=9cm,marginparwidth=7.6cm,marginparsep=0.4cm,top=0.75cm,bottom=0.75cm}
+\geometry{left=0.7cm,right=8.85cm,marginparwidth=7.8cm,marginparsep=0.35cm,top=0.5cm,bottom=0.45cm}
 \ifxetexorluatex
   \setmainfont{Carlito}
 \else
@@ -7,55 +7,111 @@
   \usepackage[T1]{fontenc}
   \usepackage[default]{lato}
 \fi
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
 \definecolor{VividPurple}{HTML}{000000}
-\definecolor{SlateGrey}{HTML}{2E2E2E}
-\definecolor{LightGrey}{HTML}{2E2E2E}
+\definecolor{SlateGrey}{HTML}{111111}
+\definecolor{LightGrey}{HTML}{3A3A3A}
 \colorlet{heading}{VividPurple}
 \colorlet{accent}{VividPurple}
 \colorlet{emphasis}{SlateGrey}
 \colorlet{body}{LightGrey}
 
+\linespread{0.93}
+\setlength{\emergencystretch}{1.5em}
+
+\renewcommand{\printinfo}[2]{\mbox{\textcolor{accent}{\normalfont #1}\hspace{0.5em}#2\hspace{1.45em}}}
+
+\makeatletter
+\renewcommand{\makecvheader}{%
+  \begingroup
+    \raggedright\color{emphasis}%
+    {\Huge\bfseries\MakeUppercase{\@name}\par}
+    \smallskip
+    {\footnotesize\bfseries\@personalinfo\par}
+  \endgroup\smallskip
+}
+\makeatother
+
+\renewcommand{\cvsection}[2][]{%
+  \medskip\vspace{1pt}%
+  \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr-0.72\baselineskip}\raggedright\input{#1}}}%
+  {\color{heading}\Large\bfseries\MakeUppercase{#2}}\\[-1ex]%
+  {\color{heading}\rule{\linewidth}{2pt}\par}\smallskip
+}
+
+\renewcommand{\cvevent}[4]{%
+  {\large\color{emphasis}#1\par}
+  \vspace{1pt}\normalsize
+  \ifstrequal{#2}{}{}{%
+    \textbf{\color{accent}#2}\par
+    \vspace{1pt}%
+  }
+  \ifstrequal{#3}{}{}{{\small\makebox[0.5\linewidth][l]{\faCalendar\hspace{0.5em}#3}}}%
+  \ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}}\par
+  \vspace{2pt}\normalsize
+}
+
+\renewcommand{\cvproject}[1]{%
+  {\textbf{\color{accent}#1}\par}
+  \vspace{1.5pt}\normalsize
+}
+
+\renewcommand{\cvtag}[1]{%
+  \tikz[baseline]\node[anchor=base,draw=body!30,rounded corners,inner xsep=0.85ex,inner ysep=0.55ex,text height=1.35ex,text depth=.2ex,font=\small]{#1};
+}
+
+\setlist[itemize]{leftmargin=*,labelsep=0.5em,nosep,itemsep=0.16\baselineskip,after=\vskip0.18\baselineskip}
+
 \begin{document}
 \name{Vishal Yadav}
 \personalinfo{%
-  \email{vishalydv23@outlook.com}
+  \email{\href{mailto:vishalydv23@outlook.com}{vishalydv23@outlook.com}}
   \location{Edinburgh, United Kingdom}
   \phone{+44 7342143507}
-  \github{github.com/vishalydv23}
-  \homepage{digisam.org}
-  \linkedin{linkedin.com/in/vishal-yadav-edinburgh/}
+  \homepage{\href{https://digisam.org}{digisam.org}}
+  \linkedin{\href{https://www.linkedin.com/in/vishal-yadav-edinburgh}{linkedin.com/in/vishal-yadav-edinburgh}}
 }
 
 \begin{fullwidth}
 \makecvheader
 \end{fullwidth}
+\vspace{-0.3em}
 
 \AtBeginEnvironment{itemize}{\small}
 
 \cvsection[page1sidebar]{Introduction}
-AI researcher and founder with eight years at the frontier of applied ML, currently leading AI governance transformation and novel LLM research at BlackRock AI Labs, while co-building DigiSam Foundation to close the AI divide for rural women in India. Building towards the first state-aware design engine for conditional biologics, beginning with target-binding-triggered conformational switches that make precision therapeutics programmable by biological state. With strong wet-lab access through the University of Cambridge's Fruk Lab, whose research on stimulus-responsive nanocarrier delivery systems is directly adjacent to this problem space.
+AI researcher, enterprise AI product builder, and founder with eight years at the frontier of applied machine learning, agentic reasoning, and structured knowledge extraction. Currently leading enterprise AI governance transformation and structured-retrieval LLM research (ASIMOV) at BlackRock AI Labs, while co-building DigiSam Foundation to close the AI divide for rural women in India. Proven track record of taking provenance-grounded multi-agent systems and unstructured-to-knowledge-graph engines from 0-to-1 into production across global finance (BlackRock, Barclays), government (Dubai Dept.\ of Finance), and UK Defence. Deeply focused on translating calibrated, evidence-traced AI reasoning and closed-loop active learning into predictable drug discovery and translational therapeutics, supported by independent PoC design in multistate conditional biologics and wet-lab research links at the University of Cambridge.
 
 \cvsection{Experience}
 
 \cvevent{Senior Data Scientist}{BlackRock AI Labs}{July 2025 -- Present}{Edinburgh, United Kingdom}
 \begin{itemize}
-\item \textbf{\textit{AI Governance for Vision 2030:}} Leading a high-profile cross-functional data science team to reimagine BlackRock’s enterprise AI governance — redesigning processes and tooling to make governance an innovation enabler rather than a compliance bottleneck, aligned to the firm’s long-term strategic vision.
-\item \textbf{\textit{ASIMOV — AI-powered investment research:}} Leading the agentic data visualisation workstream, delivering text-to-SQL and SQL-to-chart capabilities at scale. Research focus: improving structured data retrieval through pre and post-training of LLMs. \textbf{Python, Azure, OpenAI}. Featured in the \textit{Wall Street Journal}.
+\item \textbf{\textit{AI Governance for Vision 2030:}} Leading a high-profile cross-functional data science team to reimagine BlackRock's enterprise AI governance. Translated complex policies into \textbf{automated decision logic} that scans codebases and assesses application risk in real time, making governance an innovation enabler rather than a compliance bottleneck.
+\item \textbf{\textit{ASIMOV -- AI-Powered Investment Research:}} Leading the agentic data visualisation and structured retrieval workstream, delivering \textbf{text-to-SQL} and \textbf{SQL-to-chart} capabilities at scale across financial filings. Research focus: improving provenance-grounded structured data retrieval. Featured in \textit{Bloomberg} and the \textit{Wall Street Journal}.
 \end{itemize}
 
 \cvevent{Co-Founder \& Director}{DigiSam Foundation}{May 2025 -- Present}{Uttar Pradesh, India}
 \begin{itemize}
-\item Lead organisational strategy, partnerships, and programme design across three workstreams: AI literacy training, last-mile delivery of government services, and building accessible AI tools for communities with low digital infrastructure, currently operational in Uttar Pradesh.
-\item Launched \textbf{Survey Sakhi} in Saidbhar village, UP, where a trained local community researcher surveyed all 250 households. Sharpest finding: 60\% own smartphones yet 87\% have never accessed a government service app; only 1.6\% had heard of AI, yet 31\% said yes to AI training. Result: 167 women (67\%) already signed up for digital literacy programmes.
+\item \textbf{\textit{0-to-1 Venture Strategy \& Partnerships:}} Lead organisational strategy, external partnerships, governance, and programme design across three workstreams: \textbf{AI literacy training}, \textbf{last-mile welfare delivery}, and \textbf{accessible AI tooling} for low-infrastructure communities.
+\item \textbf{\textit{Evidence-Led Field Execution (Survey Sakhi):}} Designed and launched a census-level baseline survey across all \textbf{250 households} in Saidbhar village, UP. Key finding: 60\% own smartphones yet 87\% have never accessed a government service app; only 1.6\% had heard of AI, yet 31\% requested AI training. Translated field data into \textbf{167 women (67\%)} enrolling in digital literacy and government-certified AI programmes.
 \end{itemize}
 
-\cvevent{Senior Consultant — Data Science \& GenAI}{Capgemini Invent}{Dec 2021 -- July 2025}{Glasgow, United Kingdom}
+\cvevent{Senior Consultant -- Data Science \& GenAI}{Capgemini Invent}{Dec 2021 -- July 2025}{Glasgow, United Kingdom}
 \begin{itemize}
-\item \textbf{\textit{Project ASCEND (Dubai Dept. of Finance):}} Built a multi-agent system performing gap analysis of new financial processes against existing regulations, generating recommendations and KPIs, reducing report turnaround from weeks to minutes. \textbf{Azure, LlamaIndex, Python, Next.js}. Covered by Gulf News, Finance Middle East and the DOF.
-\item \textbf{\textit{Knowledge graphs from unstructured data (UK Defence):}} Used LLMs to extract structured knowledge graphs from multi-format unstructured data at scale, enabling a digital model of UK defence and cutting modelling time from weeks to minutes. \textbf{Azure, OpenAI, Python}.
+\item {\spaceskip=0.25em plus 0.1em minus 0.06em\textbf{\textit{Project ASCEND (Dubai Dept.\ of Finance):}} Originated and built a multi-agent reasoning system performing automated gap analysis of new financial processes against existing regulations, generating evidence-traced recommendations and KPIs and reducing report turnaround from weeks to minutes (\textbf{Azure, LlamaIndex, Python, Next.js}). Covered by Gulf News, Finance Middle East, and the DOF.\par}
+\item {\spaceskip=0.20em plus 0.08em minus 0.06em\textbf{\textit{Knowledge Graphs from Unstructured Data (UK Defence):}} Architected LLM pipelines to extract structured, provenance-linked knowledge graphs from multi-format unstructured intelligence at scale, enabling a digital model of UK defence and cutting modelling time from weeks to minutes (\textbf{Azure, OpenAI, Python}).\par}
 \end{itemize}
 
 \cvevent{Data Scientist}{Barclays PLC}{July 2018 -- Dec 2021}{Glasgow, United Kingdom}
-Equity trade volume forecaster for Barclays Smart Investor, deployed on \textbf{AWS} (EMR, S3, SageMaker) using \textbf{Keras, TensorFlow, Spark}, with a full-stack \textbf{Angular} KPI dashboard.
+\begin{itemize}
+\item Built and deployed an equity trade volume forecaster for Barclays Smart Investor on \textbf{AWS} (EMR, S3, SageMaker) using \textbf{Keras, TensorFlow, and Spark}, complete with a full-stack \textbf{Angular} KPI dashboard.
+\end{itemize}
+
+\cvevent{Assistant Professor}{Meerut Institute of Engineering and Technology}{Jan 2018 -- May 2018}{Meerut, India}
+\begin{itemize}
+\item Taught \textbf{Machine Learning and Pattern Recognition} to undergraduate students; organised a face detection hackathon and mentored a student team to the finals of the \textbf{Smart India Hackathon}.
+\end{itemize}
 
 \end{document}
